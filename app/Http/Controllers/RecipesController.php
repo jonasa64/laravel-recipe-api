@@ -17,7 +17,6 @@ class RecipesController extends Controller
     public function store(Request $request){
         $recipe = Recipe::create([
                 "title" => $request->input("title"),
-                "instructions" => $request->input("instructions"),
                 "imageUrl" => $request->input("imageUrl")
             ]
         );
@@ -47,7 +46,6 @@ public function update(Request $request){
 
     if(!is_null($recipe)){
         $recipe->title = $request->input("title");
-        $recipe->instructions = $request->input("instructions");
         $recipe->imageUrl = $request->input("imageUrl");
 
         $recipe->save();
