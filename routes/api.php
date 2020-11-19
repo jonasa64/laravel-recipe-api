@@ -25,3 +25,4 @@ Route::get("/recipes/{id}", [RecipesController::class , "getOne"]);
 Route::get("instructions/{recipe}", [InstructionsController::class, 'get']);
 Route::post('instructions/{recipe}', [InstructionsController::class , 'store']);
 Route::put('instructions/update', [InstructionsController::class, 'update']);
+Route::delete('instructions/delete', [InstructionsController::class, 'destory']);

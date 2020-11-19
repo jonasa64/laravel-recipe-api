@@ -32,4 +32,30 @@ class InstructionsController extends Controller
         return response()->json(["message" => "could not find instruction to update"], 500);
 
     }
+
+    public function  store(Recipe $recipe, Request $request){
+        $id = $recipe->id;
+
+        for($i = 1; $i < count($request->data); $i++){
+            $instructions[] = [
+                    "instruction" => $request->data[$i],
+                "recipe_id" => $id
+            ];
+        }
+
+        Instruction::insert($instructions);
+        return response()->json(["new instructions is created"], 201);
+    }
+
+
+    public function destory(Request $request){
+        $instruction = Instruction::whereId($request->input("id"))->first();
+
+        if(!is_null($instruction)){
+            $instruction->delete();
+            return response()->json(["message" => "instruction is deleted"], 200);
+        }
+
+        return response()->json(["message" => "instruction is not deleted", 500]);
+    }
 }
