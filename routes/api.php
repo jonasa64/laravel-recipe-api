@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipesController;
 use App\Http\Controllers\InstructionsController;
+use App\Http\Controllers\IngredientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,8 @@ Route::get("instructions/{recipe}", [InstructionsController::class, 'get']);
 Route::post('instructions/{recipe}', [InstructionsController::class , 'store']);
 Route::put('instructions/update', [InstructionsController::class, 'update']);
 Route::delete('instructions/delete', [InstructionsController::class, 'destory']);
+
+Route::get("ingredients/{recipe}", [IngredientController::class, 'get']);
+Route::post('ingredients/{recipe}', [IngredientController::class , 'store']);
+Route::put('ingredients/update', [IngredientController::class, 'update']);
+Route::delete('ingredients/delete', [IngredientController::class, 'destory']);

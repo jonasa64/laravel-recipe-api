@@ -11,7 +11,7 @@ class RecipesController extends Controller
         $recipes = Recipe::all();
 
 
-      return response()->json(['recipes' => $recipes], 200);
+      return response()->json(['data' => $recipes], 200);
     }
 
     public function store(Request $request){
@@ -21,7 +21,7 @@ class RecipesController extends Controller
             ]
         );
 
-        return response()->json(["recipe" => $recipe], 201);
+        return response()->json(["data" => $recipe], 201);
     }
 
 public function destory(Request $request){
@@ -29,16 +29,16 @@ public function destory(Request $request){
 
         if(!is_null($recipe)){
             $recipe->delete();
-            return response()->json(["message" => "recipe is deleted"], 200);
+            return response()->json(["data" => "recipe is deleted"], 200);
         }
 
-        return response()->json(["message" => "recipe is not deleted", 500]);
+        return response()->json(["data" => "recipe is not deleted", 500]);
 }
 
 public function  getOne($id){
         $recipe = Recipe::where("id", "=", $id)->first();
 
-        return response()->json(["recipe" => $recipe], 200);
+        return response()->json(["data" => $recipe], 200);
 }
 
 public function update(Request $request){
@@ -50,9 +50,9 @@ public function update(Request $request){
 
         $recipe->save();
 
-        return response()->json(["message" => "recipe is updated"], 200);
+        return response()->json(["data" => "recipe is updated"], 200);
     }
-return response()->json(["message" => "could not find recipe to update"], 500);
+return response()->json(["data" => "could not find recipe to update"], 500);
 
 }
 
