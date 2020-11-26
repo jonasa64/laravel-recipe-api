@@ -15,7 +15,7 @@ class IngredientController extends Controller
             return response()->json(['data' => $ingredients], 200);
         }
 
-        return response()->json(['data' => 'no ingredients for this recipes yet'], 200);
+        return response()->json(['data' => 'no ingredients for this recipes yet'], 404);
     }
 
     public function store(Recipe $recipe, Request $request){

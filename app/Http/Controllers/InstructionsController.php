@@ -16,7 +16,7 @@ class InstructionsController extends Controller
             return response()->json(["data" => $instructions], 200);
         }
 
-         return response()->json(["data" => 'no instructions yet'], 200);
+         return response()->json(["data" => 'no instructions yet'], 404);
     }
 
     public function update(Request $request){
